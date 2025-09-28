@@ -32,7 +32,7 @@ docker-compose ps
 docker-compose down
 ```
 
-访问地址：http://localhost:8080
+访问地址：http://localhost
 
 ### 方式二：直接使用 Docker
 
@@ -41,7 +41,7 @@ docker-compose down
 docker build -t vue-homepage .
 
 # 运行容器
-docker run -d -p 8080:80 --name vue-homepage vue-homepage
+docker run -d -p 80:80 --name vue-homepage vue-homepage
 
 # 查看容器状态
 docker ps
