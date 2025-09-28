@@ -17,7 +17,7 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false,
-    minify: 'terser',
+    minify: 'esbuild', // 使用 esbuild 压缩器，更快且无需额外依赖
     rollupOptions: {
       output: {
         chunkFileNames: 'assets/js/[name]-[hash].js',
