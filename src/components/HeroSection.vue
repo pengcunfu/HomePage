@@ -1,0 +1,331 @@
+<template>
+  <section id="home" class="hero-section relative min-h-screen flex items-center overflow-hidden">
+    <!-- 背景装饰 -->
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50"></div>
+    
+    <!-- 装饰性形状 -->
+    <div class="absolute top-20 left-10 w-72 h-72 bg-primary-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+    <div class="absolute top-40 right-10 w-72 h-72 bg-secondary-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+    <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+    
+    <div class="container-custom relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- 左侧内容 -->
+        <div class="space-y-8" data-aos="fade-right" data-aos-duration="1000">
+          <!-- 问候语 -->
+          <div class="inline-flex items-center px-4 py-2 bg-primary-50 rounded-full text-primary-700 font-medium">
+            <span class="w-2 h-2 bg-primary-500 rounded-full mr-2 animate-pulse"></span>
+            你好，这里是
+          </div>
+          
+          <!-- 主标题 -->
+          <div class="space-y-4">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-heading">
+              <span class="block text-dark-900">我是</span>
+              <span class="block text-gradient" ref="typedElement">彭存福</span>
+            </h1>
+            
+            <!-- 职业描述 -->
+            <div class="text-xl md:text-2xl text-dark-600 font-medium">
+              <span ref="jobTitleElement">全栈开发工程师</span>
+            </div>
+          </div>
+          
+          <!-- 技能标签 -->
+          <div class="flex flex-wrap gap-3">
+            <span
+              v-for="(skill, index) in skills"
+              :key="skill"
+              :data-aos="'fade-up'"
+              :data-aos-delay="index * 100"
+              class="px-4 py-2 bg-white/70 backdrop-blur-sm rounded-full text-dark-700 font-medium shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105"
+            >
+              {{ skill }}
+            </span>
+          </div>
+          
+          <!-- 描述文本 -->
+          <p class="text-lg text-dark-600 leading-relaxed max-w-lg" data-aos="fade-up" data-aos-delay="400">
+            专注于现代Web技术栈开发，拥有丰富的全栈开发经验。热爱编程，追求代码质量与用户体验的完美结合。
+          </p>
+          
+          <!-- 行动按钮 -->
+          <div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="600">
+            <a
+              href="#projects"
+              class="btn btn-primary group"
+              @click="scrollToSection('projects')"
+            >
+              查看我的作品
+              <ArrowRight :size="20" class="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+            </a>
+            
+            <a
+              href="#contact"
+              class="btn btn-secondary group"
+              @click="scrollToSection('contact')"
+            >
+              联系我
+              <Mail :size="20" class="ml-2" />
+            </a>
+          </div>
+          
+          <!-- 社交链接 -->
+          <div class="flex items-center space-x-6" data-aos="fade-up" data-aos-delay="800">
+            <span class="text-dark-500 font-medium">关注我：</span>
+            <div class="flex space-x-4">
+              <a
+                v-for="social in socialLinks"
+                :key="social.name"
+                :href="social.url"
+                :aria-label="social.name"
+                class="p-2 text-dark-400 hover:text-primary-600 transition-colors duration-300 hover:scale-110 transform"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <component :is="social.icon" :size="24" />
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 右侧图片 -->
+        <div class="relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+          <!-- 主图片 -->
+          <div class="relative z-10">
+            <img
+              src="@/assets/images/hero.png"
+              alt="彭存福"
+              class="w-full max-w-lg mx-auto animate-float"
+            />
+          </div>
+          
+          <!-- 装饰卡片 -->
+          <div 
+            class="absolute top-20 -left-4 bg-white rounded-lg shadow-lg p-4 transform -rotate-6 hover:rotate-0 transition-transform duration-300"
+            data-aos="zoom-in"
+            data-aos-delay="1000"
+          >
+            <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
+                <Code :size="24" class="text-primary-600" />
+              </div>
+              <div>
+                <div class="font-semibold text-dark-900">5+</div>
+                <div class="text-sm text-dark-500">年开发经验</div>
+              </div>
+            </div>
+          </div>
+          
+          <div 
+            class="absolute bottom-20 -right-4 bg-white rounded-lg shadow-lg p-4 transform rotate-6 hover:rotate-0 transition-transform duration-300"
+            data-aos="zoom-in"
+            data-aos-delay="1200"
+          >
+            <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center">
+                <Award :size="24" class="text-secondary-600" />
+              </div>
+              <div>
+                <div class="font-semibold text-dark-900">100+</div>
+                <div class="text-sm text-dark-500">项目完成</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 滚动指示器 -->
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <button
+          @click="scrollToNext"
+          class="p-2 text-dark-400 hover:text-primary-600 transition-colors duration-300"
+          aria-label="向下滚动"
+        >
+          <ChevronDown :size="24" />
+        </button>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+import { ArrowRight, Mail, Github, Linkedin, Twitter, Code, Award, ChevronDown } from 'lucide-vue-next'
+import Typed from 'typed.js'
+
+// 响应式数据
+const typedElement = ref(null)
+const jobTitleElement = ref(null)
+
+// 技能列表
+const skills = ref([
+  'Vue.js', 'React', 'Node.js', 'Python', 'Java', 'Go', 'Docker', 'AWS'
+])
+
+// 社交链接
+const socialLinks = ref([
+  {
+    name: 'GitHub',
+    url: 'https://github.com/huaqiwill',
+    icon: Github
+  },
+  {
+    name: 'CSDN',
+    url: 'https://blog.csdn.net/HuaQi666',
+    icon: Code
+  },
+  {
+    name: 'LinkedIn',
+    url: '#',
+    icon: Linkedin
+  }
+])
+
+// 滚动到指定区域
+const scrollToSection = (sectionId) => {
+  const element = document.getElementById(sectionId)
+  if (element) {
+    const offsetTop = element.offsetTop - 80
+    window.scrollTo({
+      top: offsetTop,
+      behavior: 'smooth'
+    })
+  }
+}
+
+// 滚动到下一个区域
+const scrollToNext = () => {
+  scrollToSection('about')
+}
+
+onMounted(() => {
+  // 初始化打字机效果
+  if (typedElement.value) {
+    new Typed(typedElement.value, {
+      strings: ['彭存福', '全栈开发者', '编程爱好者'],
+      typeSpeed: 100,
+      backSpeed: 50,
+      backDelay: 2000,
+      startDelay: 500,
+      loop: true,
+      showCursor: true,
+      cursorChar: '|'
+    })
+  }
+  
+  // 职业描述打字效果
+  if (jobTitleElement.value) {
+    setTimeout(() => {
+      new Typed(jobTitleElement.value, {
+        strings: [
+          '全栈开发工程师',
+          '前端开发专家', 
+          '后端架构师',
+          '技术顾问'
+        ],
+        typeSpeed: 80,
+        backSpeed: 40,
+        backDelay: 3000,
+        startDelay: 1000,
+        loop: true,
+        showCursor: false
+      })
+    }, 2000)
+  }
+})
+</script>
+
+<style scoped>
+/* 自定义动画 */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* 渐变文字效果增强 */
+.text-gradient {
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 浮动动画优化 */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 100vh;
+    padding-top: 80px;
+  }
+  
+  .text-4xl {
+    font-size: 2.5rem;
+  }
+  
+  .text-xl {
+    font-size: 1.25rem;
+  }
+}
+
+/* 打字机光标样式 */
+.typed-cursor {
+  opacity: 1;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+</style>
