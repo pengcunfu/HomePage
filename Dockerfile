@@ -1,7 +1,7 @@
 # 多阶段构建 Dockerfile for Vue.js 项目
 
 # 第一阶段：构建阶段
-FROM node:18-alpine as build-stage
+FROM node:18-alpine AS build-stage
 
 # 设置工作目录
 WORKDIR /app
@@ -12,8 +12,8 @@ COPY package*.json ./
 # 设置npm国内镜像源
 RUN npm config set registry https://registry.npmmirror.com
 
-# 安装依赖
-RUN npm ci --only=production --silent
+# 安装所有依赖（包括开发依赖，构建时需要）
+RUN npm ci --silent
 
 # 复制项目文件
 COPY . .
@@ -22,7 +22,7 @@ COPY . .
 RUN npm run build
 
 # 第二阶段：生产阶段
-FROM nginx:alpine as production-stage
+FROM nginx:alpine AS production-stage
 
 # 复制自定义 nginx 配置
 COPY nginx.conf /etc/nginx/nginx.conf
