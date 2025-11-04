@@ -18,7 +18,7 @@
           </router-link>
         </div>
         
-        <!-- 桌面端导航菜单 -->
+        <!-- 桌面端导航菜单 - 居右布局 -->
         <div class="hidden md:flex items-center space-x-8">
           <a 
             v-for="item in navItems" 
@@ -31,56 +31,6 @@
             @click="scrollToSection(item.section)"
           >
             {{ item.name }}
-          </a>
-        </div>
-        
-        <!-- 右侧按钮组 -->
-        <div class="hidden md:flex items-center space-x-4">
-          <!-- 主题切换 -->
-          <button
-            @click="toggleTheme"
-            class="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
-            aria-label="切换主题"
-          >
-            <Sun v-if="isDark" :size="20" />
-            <Moon v-else :size="20" />
-          </button>
-          
-          <!-- 语言切换 -->
-          <div class="relative" ref="langDropdown">
-            <button
-              @click="showLangMenu = !showLangMenu"
-              class="flex items-center space-x-1 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
-            >
-              <Globe :size="20" />
-              <span class="text-sm">{{ currentLang.toUpperCase() }}</span>
-              <ChevronDown :size="16" />
-            </button>
-            
-            <Transition name="dropdown">
-              <div 
-                v-if="showLangMenu"
-                class="absolute right-0 top-full mt-2 w-32 bg-white rounded-lg shadow-lg border py-1"
-              >
-                <button
-                  v-for="lang in languages"
-                  :key="lang.code"
-                  @click="changeLang(lang.code)"
-                  class="w-full px-4 py-2 text-left hover:bg-gray-100 transition-colors duration-200"
-                >
-                  {{ lang.name }}
-                </button>
-              </div>
-            </Transition>
-          </div>
-          
-          <!-- 联系按钮 -->
-          <a
-            href="#contact"
-            class="btn btn-primary"
-            @click="scrollToSection('contact')"
-          >
-            联系我
           </a>
         </div>
         
@@ -113,25 +63,6 @@
             >
               {{ item.name }}
             </a>
-            
-            <div class="flex items-center justify-center space-x-4 pt-4 border-t">
-              <button
-                @click="toggleTheme"
-                class="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
-                aria-label="切换主题"
-              >
-                <Sun v-if="isDark" :size="20" />
-                <Moon v-else :size="20" />
-              </button>
-              
-              <a
-                href="#contact"
-                class="btn btn-primary"
-                @click="handleMobileNavClick('contact')"
-              >
-                联系我
-              </a>
-            </div>
           </div>
         </div>
       </div>
@@ -141,15 +72,12 @@
 
 <script setup>
 import { ref, reactive, onMounted, onUnmounted } from 'vue'
-import { Menu, X, Sun, Moon, Globe, ChevronDown } from 'lucide-vue-next'
+import { Menu, X } from 'lucide-vue-next'
 
 // 响应式数据
 const isScrolled = ref(false)
 const mobileMenuOpen = ref(false)
-const showLangMenu = ref(false)
 const activeSection = ref('home')
-const isDark = ref(false)
-const currentLang = ref('zh')
 
 // 导航项目
 const navItems = reactive([
@@ -159,12 +87,6 @@ const navItems = reactive([
   { name: '项目', href: '#projects', section: 'projects' },
   { name: '经验', href: '#experience', section: 'experience' },
   { name: '联系', href: '#contact', section: 'contact' }
-])
-
-// 语言选项
-const languages = reactive([
-  { code: 'zh', name: '中文' },
-  { code: 'en', name: 'English' }
 ])
 
 // 滚动监听
@@ -205,58 +127,16 @@ const handleMobileNavClick = (sectionId) => {
   mobileMenuOpen.value = false
 }
 
-// 主题切换
-const toggleTheme = () => {
-  isDark.value = !isDark.value
-  // 这里可以添加主题切换逻辑
-  document.documentElement.classList.toggle('dark', isDark.value)
-}
-
-// 语言切换
-const changeLang = (langCode) => {
-  currentLang.value = langCode
-  showLangMenu.value = false
-  // 这里可以添加国际化逻辑
-}
-
-// 点击外部关闭语言菜单
-const handleClickOutside = (event) => {
-  if (!event.target.closest('.relative')) {
-    showLangMenu.value = false
-  }
-}
-
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
-  document.addEventListener('click', handleClickOutside)
-  
-  // 初始化主题
-  const savedTheme = localStorage.getItem('theme')
-  if (savedTheme) {
-    isDark.value = savedTheme === 'dark'
-    document.documentElement.classList.toggle('dark', isDark.value)
-  }
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
-  document.removeEventListener('click', handleClickOutside)
 })
 </script>
 
 <style scoped>
-/* 下拉菜单动画 */
-.dropdown-enter-active,
-.dropdown-leave-active {
-  transition: all 0.2s ease;
-}
-
-.dropdown-enter-from,
-.dropdown-leave-to {
-  opacity: 0;
-  transform: translateY(-10px);
-}
-
 /* 移动端菜单动画 */
 .mobile-menu-enter-active,
 .mobile-menu-leave-active {
