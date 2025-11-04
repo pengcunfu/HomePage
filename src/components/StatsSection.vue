@@ -1,5 +1,5 @@
 <template>
-  <section class="py-20 bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-600 text-white relative overflow-hidden">
+  <section class="py-20 bg-primary-600 text-white relative overflow-hidden">
     <!-- 背景装饰 -->
     <div class="absolute inset-0 bg-black/20"></div>
     <div class="absolute top-0 left-0 w-full h-full">
@@ -322,7 +322,7 @@ const startCounters = () => {
 
 // 滚动监听
 const handleScroll = () => {
-  const section = document.querySelector('.py-20.bg-gradient-to-br')
+  const section = document.querySelector('.py-20.bg-primary-600')
   if (section) {
     const rect = section.getBoundingClientRect()
     if (rect.top < window.innerHeight && rect.bottom > 0 && !countersStarted.value) {

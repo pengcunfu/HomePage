@@ -15,7 +15,7 @@
             </div>
             
             <!-- 背景装饰 -->
-            <div class="absolute inset-0 bg-gradient-to-br from-primary-400 to-secondary-400 rounded-2xl transform rotate-6 scale-105 opacity-20"></div>
+            <div class="absolute inset-0 bg-primary-400 rounded-2xl transform rotate-6 scale-105 opacity-20"></div>
             
             <!-- 技能徽章 -->
             <div 
@@ -50,7 +50,7 @@
             <h2 class="section-title mb-4">
               为什么选择我？
             </h2>
-            <div class="w-16 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full"></div>
+            <div class="w-16 h-1 bg-primary-500 rounded-full"></div>
           </div>
           
           <!-- 个人介绍 -->

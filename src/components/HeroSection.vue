@@ -1,7 +1,7 @@
 <template>
   <section id="home" class="hero-section relative min-h-screen flex items-center overflow-hidden">
     <!-- 背景装饰 -->
-    <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50"></div>
+    <div class="absolute inset-0 bg-blue-50"></div>
     
     <!-- 装饰性形状 -->
     <div class="absolute top-20 left-10 w-72 h-72 bg-primary-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
@@ -13,9 +13,9 @@
         <!-- 左侧内容 -->
         <div class="space-y-8" data-aos="fade-right" data-aos-duration="1000">
           <!-- 问候语 -->
-          <div class="inline-flex items-center px-4 py-2 bg-primary-50 rounded-full text-primary-700 font-medium">
-            <span class="w-2 h-2 bg-primary-500 rounded-full mr-2 animate-pulse"></span>
-            你好，这里是
+          <div class="inline-flex items-center px-2 py-1.5 xs:px-3 xs:py-2 sm:px-4 sm:py-2 bg-primary-50 rounded-full text-primary-700 font-medium text-xs xs:text-sm sm:text-base max-w-fit">
+            <span class="w-1.5 h-1.5 xs:w-2 xs:h-2 bg-primary-500 rounded-full mr-1.5 xs:mr-2 animate-pulse flex-shrink-0"></span>
+            <span class="whitespace-nowrap">你好，这里是</span>
           </div>
           
           <!-- 主标题 -->
@@ -151,7 +151,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { ArrowRight, Mail, Github, Linkedin, Twitter, Code, Award, ChevronDown } from 'lucide-vue-next'
+import { ArrowRight, Mail, Github, Linkedin, Twitter, Code, Award, ChevronDown, BookOpen } from 'lucide-vue-next'
 import Typed from 'typed.js'
 
 // 响应式数据
@@ -167,7 +167,7 @@ const skills = ref([
 const socialLinks = ref([
   {
     name: 'GitHub',
-    url: 'https://github.com/huaqiwill',
+    url: 'https://github.com/pengcunfu',
     icon: Github
   },
   {
@@ -176,9 +176,14 @@ const socialLinks = ref([
     icon: Code
   },
   {
-    name: 'LinkedIn',
-    url: '#',
-    icon: Linkedin
+    name: 'Gitee',
+    url: 'https://gitee.com/huaqiwill',
+    icon: Code
+  },
+  {
+    name: '知乎',
+    url: 'https://www.zhihu.com/people/super-10-33-97',
+    icon: BookOpen
   }
 ])
 
@@ -265,23 +270,9 @@ onMounted(() => {
   animation-delay: 4s;
 }
 
-/* 渐变文字效果增强 */
+/* 文字样式 */
 .text-gradient {
-  background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);
-  background-size: 200% 200%;
-  animation: gradient 3s ease infinite;
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  color: #3b82f6;
 }
 
 /* 浮动动画优化 */
@@ -299,10 +290,39 @@ onMounted(() => {
 }
 
 /* 响应式调整 */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .hero-section {
     min-height: 100vh;
     padding-top: 80px;
+  }
+  
+  .grid.lg\\:grid-cols-2 {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-section {
+    padding-top: 90px;
+  }
+  
+  .text-4xl {
+    font-size: 2.75rem;
+  }
+  
+  .text-xl {
+    font-size: 1.375rem;
+  }
+  
+  .space-y-8 > * + * {
+    margin-top: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding-top: 100px;
   }
   
   .text-4xl {
@@ -311,6 +331,52 @@ onMounted(() => {
   
   .text-xl {
     font-size: 1.25rem;
+  }
+  
+  .space-y-8 > * + * {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-section {
+    padding-top: 110px;
+  }
+  
+  .text-4xl {
+    font-size: 2.25rem;
+  }
+  
+  .text-xl {
+    font-size: 1.125rem;
+  }
+  
+  .container-custom {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding-top: 120px;
+  }
+  
+  .text-4xl {
+    font-size: 2rem;
+  }
+  
+  .text-xl {
+    font-size: 1rem;
+  }
+  
+  .space-y-8 > * + * {
+    margin-top: 1.25rem;
+  }
+  
+  .container-custom {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 }
 

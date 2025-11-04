@@ -5,7 +5,7 @@
       <div class="text-center mb-16" data-aos="fade-up">
         <h5 class="text-primary-600 font-semibold mb-2 uppercase tracking-wider">工作经历</h5>
         <h2 class="section-title mb-4">职业发展历程</h2>
-        <div class="w-16 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full mx-auto mb-6"></div>
+        <div class="w-16 h-1 bg-primary-500 rounded-full mx-auto mb-6"></div>
         <p class="section-subtitle max-w-2xl mx-auto">
           从初级开发者到全栈工程师，每一段经历都是技术成长和能力提升的重要阶段。
         </p>
@@ -14,27 +14,21 @@
       <!-- 经验时间线 -->
       <div class="max-w-4xl mx-auto">
         <div class="timeline">
-          <div 
-            v-for="(experience, index) in experiences"
-            :key="experience.id"
-            class="timeline-item"
-            data-aos="fade-up"
-            :data-aos-delay="index * 200"
-          >
+          <div v-for="(experience, index) in experiences" :key="experience.id" class="timeline-item" data-aos="fade-up"
+            :data-aos-delay="index * 200">
             <!-- 时间线圆点 -->
             <div class="timeline-dot">
               <component :is="experience.icon" :size="16" class="text-white" />
             </div>
 
             <!-- 经验卡片 -->
-            <div 
-              :class="[
-                'experience-card',
-                index % 2 === 0 ? 'md:ml-12' : 'md:mr-12 md:text-right'
-              ]"
-            >
+            <div :class="[
+              'experience-card',
+              index % 2 === 0 ? 'md:ml-12' : 'md:mr-12 md:text-right'
+            ]">
               <!-- 时间标签 -->
-              <div class="inline-flex items-center px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
+              <div
+                class="inline-flex items-center px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
                 <Calendar :size="16" class="mr-2" />
                 {{ experience.duration }}
               </div>
@@ -56,11 +50,7 @@
               <div class="mb-6">
                 <h5 class="font-semibold text-gray-900 mb-3">主要成就：</h5>
                 <ul class="space-y-2">
-                  <li 
-                    v-for="achievement in experience.achievements"
-                    :key="achievement"
-                    class="flex items-start"
-                  >
+                  <li v-for="achievement in experience.achievements" :key="achievement" class="flex items-start">
                     <CheckCircle :size="16" class="mr-2 text-green-500 mt-0.5 flex-shrink-0" />
                     <span class="text-gray-600 text-sm">{{ achievement }}</span>
                   </li>
@@ -71,28 +61,19 @@
               <div class="mb-6">
                 <h5 class="font-semibold text-gray-900 mb-3">使用技术：</h5>
                 <div class="flex flex-wrap gap-2">
-                  <span
-                    v-for="tech in experience.technologies"
-                    :key="tech"
-                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-primary-100 hover:text-primary-700 transition-colors duration-200"
-                  >
+                  <span v-for="tech in experience.technologies" :key="tech"
+                    class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-primary-100 hover:text-primary-700 transition-colors duration-200">
                     {{ tech }}
                   </span>
                 </div>
               </div>
 
               <!-- 项目亮点 -->
-              <div 
-                v-if="experience.projects && experience.projects.length > 0"
-                class="bg-gray-50 rounded-lg p-4"
-              >
+              <div v-if="experience.projects && experience.projects.length > 0" class="bg-gray-50 rounded-lg p-4">
                 <h5 class="font-semibold text-gray-900 mb-3">参与项目：</h5>
                 <div class="space-y-2">
-                  <div 
-                    v-for="project in experience.projects"
-                    :key="project.name"
-                    class="flex items-center justify-between"
-                  >
+                  <div v-for="project in experience.projects" :key="project.name"
+                    class="flex items-center justify-between">
                     <span class="text-sm font-medium text-gray-700">{{ project.name }}</span>
                     <span class="text-xs text-gray-500">{{ project.role }}</span>
                   </div>
@@ -107,19 +88,14 @@
       <div class="mt-20" data-aos="fade-up">
         <h3 class="text-2xl lg:text-3xl font-bold text-center text-gray-900 mb-12">教育背景</h3>
         <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div 
-            v-for="(education, index) in educations"
-            :key="education.id"
-            class="education-card group"
-            data-aos="fade-up"
-            :data-aos-delay="index * 200"
-          >
+          <div v-for="(education, index) in educations" :key="education.id" class="education-card group"
+            data-aos="fade-up" :data-aos-delay="index * 200">
             <div class="flex items-start space-x-4">
               <!-- 学校图标 -->
-              <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center flex-shrink-0">
+              <div class="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center flex-shrink-0">
                 <GraduationCap :size="24" class="text-white" />
               </div>
-              
+
               <!-- 教育详情 -->
               <div class="flex-1">
                 <h4 class="text-lg font-bold text-gray-900 group-hover:text-primary-600 transition-colors duration-300">
@@ -128,15 +104,12 @@
                 <p class="text-primary-600 font-medium mb-2">{{ education.school }}</p>
                 <p class="text-sm text-gray-500 mb-3">{{ education.duration }}</p>
                 <p class="text-gray-600 text-sm leading-relaxed">{{ education.description }}</p>
-                
+
                 <!-- 主要课程或成就 -->
                 <div v-if="education.highlights" class="mt-3">
                   <div class="flex flex-wrap gap-1">
-                    <span
-                      v-for="highlight in education.highlights"
-                      :key="highlight"
-                      class="px-2 py-1 bg-primary-50 text-primary-700 text-xs rounded-full"
-                    >
+                    <span v-for="highlight in education.highlights" :key="highlight"
+                      class="px-2 py-1 bg-primary-50 text-primary-700 text-xs rounded-full">
                       {{ highlight }}
                     </span>
                   </div>
@@ -152,16 +125,11 @@
         <h3 class="text-2xl lg:text-3xl font-bold text-center text-gray-900 mb-12">技能发展历程</h3>
         <div class="max-w-6xl mx-auto">
           <div class="grid md:grid-cols-3 gap-8">
-            <div 
-              v-for="(phase, index) in skillPhases"
-              :key="phase.id"
-              class="skill-phase-card"
-              data-aos="fade-up"
-              :data-aos-delay="index * 200"
-            >
+            <div v-for="(phase, index) in skillPhases" :key="phase.id" class="skill-phase-card" data-aos="fade-up"
+              :data-aos-delay="index * 200">
               <!-- 阶段图标 -->
               <div class="text-center mb-6">
-                <div class="w-16 h-16 mx-auto bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full flex items-center justify-center mb-4">
+                <div class="w-16 h-16 mx-auto bg-primary-500 rounded-full flex items-center justify-center mb-4">
                   <component :is="phase.icon" :size="28" class="text-white" />
                 </div>
                 <h4 class="text-xl font-bold text-gray-900">{{ phase.title }}</h4>
@@ -170,11 +138,8 @@
 
               <!-- 技能列表 -->
               <div class="space-y-3">
-                <div 
-                  v-for="skill in phase.skills"
-                  :key="skill"
-                  class="flex items-center p-2 bg-gray-50 rounded-lg hover:bg-primary-50 transition-colors duration-200"
-                >
+                <div v-for="skill in phase.skills" :key="skill"
+                  class="flex items-center p-2 bg-gray-50 rounded-lg hover:bg-primary-50 transition-colors duration-200">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
                   <span class="text-sm text-gray-700">{{ skill }}</span>
                 </div>
@@ -189,12 +154,12 @@
 
 <script setup>
 import { ref } from 'vue'
-import { 
-  CheckCircle, 
-  Calendar, 
-  GraduationCap, 
-  Code, 
-  Server, 
+import {
+  CheckCircle,
+  Calendar,
+  GraduationCap,
+  Code,
+  Server,
   Cloud,
   Rocket,
   Target,
@@ -268,9 +233,17 @@ const experiences = ref([
 const educations = ref([
   {
     id: 1,
-    degree: '计算机科学与技术 学士学位',
-    school: '某某大学',
-    duration: '2015年9月 - 2019年6月',
+    degree: '计算机应用技术 专科',
+    school: '武汉交通职业学院',
+    duration: '2021年9月 - 2024年6月',
+    description: '主修计算机科学与技术专业，系统学习了计算机基础理论、编程语言、数据结构与算法、数据库原理等核心课程。',
+    highlights: ['数据结构与算法', '计算机网络', '数据库原理', '软件工程', '操作系统']
+  },
+  {
+    id: 2,
+    degree: '软件工程 学士学位',
+    school: '湖北工程学院',
+    duration: '2024年9月 - 2026年6月',
     description: '主修计算机科学与技术专业，系统学习了计算机基础理论、编程语言、数据结构与算法、数据库原理等核心课程。',
     highlights: ['数据结构与算法', '计算机网络', '数据库原理', '软件工程', '操作系统']
   },
@@ -302,7 +275,7 @@ const skillPhases = ref([
   },
   {
     id: 2,
-    title: '成长阶段', 
+    title: '成长阶段',
     period: '2020 - 2022',
     icon: Rocket,
     skills: [
@@ -349,11 +322,11 @@ const skillPhases = ref([
 
 /* 时间线增强样式 */
 .timeline::before {
-  @apply bg-gradient-to-b from-primary-200 via-primary-300 to-primary-200;
+  @apply bg-primary-200;
 }
 
 .timeline-dot {
-  @apply bg-gradient-to-br from-primary-500 to-secondary-500;
+  @apply bg-primary-500;
 }
 
 /* 响应式调整 */
@@ -361,15 +334,15 @@ const skillPhases = ref([
   .timeline::before {
     @apply left-6;
   }
-  
+
   .timeline-item {
     @apply pl-16;
   }
-  
+
   .timeline-dot {
     @apply left-2;
   }
-  
+
   .experience-card {
     @apply ml-0 mr-0 text-left;
   }

@@ -9,15 +9,12 @@
       <div class="flex items-center justify-between h-16 lg:h-20">
         <!-- Logo -->
         <div class="flex items-center">
-          <router-link to="/" class="flex items-center space-x-2">
+          <router-link to="/" class="flex items-center">
             <img 
               src="@/assets/images/logo.svg" 
               alt="彭存福" 
-              class="h-8 w-8 lg:h-10 lg:w-10"
+              class="h-20 w-20 lg:h-24 lg:w-24"
             />
-            <span class="text-xl lg:text-2xl font-bold text-gradient">
-              彭存福
-            </span>
           </router-link>
         </div>
         

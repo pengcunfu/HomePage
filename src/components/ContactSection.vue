@@ -5,7 +5,7 @@
       <div class="text-center mb-16" data-aos="fade-up">
         <h5 class="text-primary-600 font-semibold mb-2 uppercase tracking-wider">联系我</h5>
         <h2 class="section-title mb-4">让我们开始合作</h2>
-        <div class="w-16 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full mx-auto mb-6"></div>
+        <div class="w-16 h-1 bg-primary-500 rounded-full mx-auto mb-6"></div>
         <p class="section-subtitle max-w-2xl mx-auto">
           有项目想法或者技术问题？随时联系我，让我们一起把想法变成现实。
         </p>
@@ -23,7 +23,7 @@
             >
               <div class="flex items-start space-x-4">
                 <!-- 图标 -->
-                <div class="w-14 h-14 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <div class="w-14 h-14 bg-primary-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <component :is="contact.icon" :size="24" class="text-white" />
                 </div>
                 
@@ -59,7 +59,7 @@
                   :key="social.name"
                   :href="social.url"
                   :aria-label="social.name"
-                  class="w-12 h-12 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center text-white hover:scale-110 transform transition-all duration-300 hover:shadow-lg"
+                  class="w-12 h-12 bg-primary-500 rounded-lg flex items-center justify-center text-white hover:scale-110 transform transition-all duration-300 hover:shadow-lg"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -263,7 +263,7 @@
 
       <!-- CTA 部分 -->
       <div class="mt-20 text-center" data-aos="fade-up">
-        <div class="bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl p-8 lg:p-12 text-white">
+        <div class="bg-primary-600 rounded-2xl p-8 lg:p-12 text-white">
           <h3 class="text-2xl lg:text-3xl font-bold mb-4">准备开始您的项目了吗？</h3>
           <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
             让我们一起讨论您的想法，并将其转化为出色的数字解决方案。
@@ -296,7 +296,9 @@ import {
   Twitter,
   Send,
   CheckCircle,
-  AlertCircle
+  AlertCircle,
+  Code,
+  BookOpen
 } from 'lucide-vue-next'
 
 // 响应式数据
@@ -349,18 +351,18 @@ const contactInfo = ref([
 const socialLinks = ref([
   {
     name: 'GitHub',
-    url: 'https://github.com/huaqiwill',
+    url: 'https://github.com/pengcunfu',
     icon: Github
   },
   {
-    name: 'LinkedIn',
-    url: '#',
-    icon: Linkedin
+    name: 'Gitee',
+    url: 'https://gitee.com/huaqiwill',
+    icon: Code
   },
   {
-    name: 'Twitter',
-    url: '#',
-    icon: Twitter
+    name: '知乎',
+    url: 'https://www.zhihu.com/people/super-10-33-97',
+    icon: BookOpen
   }
 ])
 

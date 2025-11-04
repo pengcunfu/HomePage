@@ -5,7 +5,7 @@
       <div class="text-center mb-16" data-aos="fade-up">
         <h5 class="text-primary-600 font-semibold mb-2 uppercase tracking-wider">我的作品</h5>
         <h2 class="section-title mb-4">精选项目展示</h2>
-        <div class="w-16 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full mx-auto mb-6"></div>
+        <div class="w-16 h-1 bg-primary-500 rounded-full mx-auto mb-6"></div>
         <p class="section-subtitle max-w-2xl mx-auto">
           以下是我近期完成的一些代表性项目，涵盖了前端开发、后端架构、全栈应用等多个领域。
         </p>

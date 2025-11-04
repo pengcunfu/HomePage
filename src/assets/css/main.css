@@ -62,22 +62,22 @@
     @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-xl;
   }
   
-  /* 渐变背景 */
+  /* 背景样式 */
   .gradient-bg {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #667eea;
   }
   
   .gradient-primary {
-    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    background: #3b82f6;
   }
   
   .gradient-secondary {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: #f093fb;
   }
   
-  /* 文本渐变 */
+  /* 文本样式 */
   .text-gradient {
-    @apply bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent;
+    @apply text-primary-600;
   }
   
   /* 标题样式 */
@@ -100,7 +100,7 @@
   }
   
   .skill-progress {
-    @apply h-full bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full transition-all duration-1000 ease-out;
+    @apply h-full bg-primary-500 rounded-full transition-all duration-1000 ease-out;
   }
   
   /* 导航样式 */

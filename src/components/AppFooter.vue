@@ -12,7 +12,7 @@
                 alt="彭存福" 
                 class="h-10 w-10"
               />
-              <span class="text-2xl font-bold text-gradient">彭存福</span>
+              <span class="text-2xl font-bold text-primary-600">彭存福</span>
             </div>
             <p class="text-gray-300 mb-6 leading-relaxed max-w-md">
               专注于现代Web技术栈的全栈开发工程师，致力于为客户提供高质量的技术解决方案。
@@ -184,7 +184,9 @@ import {
   ArrowUp,
   Github,
   Linkedin,
-  Twitter
+  Twitter,
+  Code,
+  BookOpen
 } from 'lucide-vue-next'
 
 // 当前年份
@@ -197,18 +199,18 @@ const lastUpdated = ref('2024-09-25')
 const socialLinks = ref([
   {
     name: 'GitHub',
-    url: 'https://github.com/huaqiwill',
+    url: 'https://github.com/pengcunfu',
     icon: Github
   },
   {
-    name: 'LinkedIn',
-    url: '#',
-    icon: Linkedin
+    name: 'Gitee',
+    url: 'https://gitee.com/huaqiwill',
+    icon: Code
   },
   {
-    name: 'Twitter',
-    url: '#',
-    icon: Twitter
+    name: '知乎',
+    url: 'https://www.zhihu.com/people/super-10-33-97',
+    icon: BookOpen
   }
 ])
 
@@ -295,12 +297,9 @@ const scrollToTop = () => {
   animation: float-2 18s ease-in-out infinite;
 }
 
-/* 渐变文字效果 */
+/* 文字样式 */
 .text-gradient {
-  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #3b82f6;
 }
 
 /* 响应式调整 */

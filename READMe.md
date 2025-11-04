@@ -85,5 +85,63 @@ docker-compose -f docker-compose.yml up -d
 - **构建工具**: Vite
 - **样式**: Tailwind CSS
 - **动画**: GSAP, AOS
-- **部署**: Docker + Nginx
+- **部署**: Docker + Nginx / GitHub Pages
+
+## 📦 GitHub Pages 部署
+
+### 自动部署（推荐）
+
+项目已配置 GitHub Actions 自动部署工作流。当你推送代码到 `master` 分支时，会自动构建并部署到 GitHub Pages。
+
+**部署步骤：**
+
+1. **设置仓库 Pages 配置**
+   - 进入你的 GitHub 仓库
+   - 点击 `Settings` → `Pages`
+   - 在 `Build and deployment` 下，选择 `Source` 为 `GitHub Actions`
+
+2. **推送代码**
+   ```bash
+   git add .
+   git commit -m "Deploy to GitHub Pages"
+   git push origin master
+   ```
+
+3. **查看部署状态**
+   - 在仓库的 `Actions` 标签页查看工作流运行状态
+   - 部署成功后，网站将在 `https://<你的用户名>.github.io/HomePage/` 访问
+
+### 手动部署
+
+如果需要手动部署到 GitHub Pages：
+
+```bash
+# 构建项目
+npm run build
+
+# 进入构建输出目录
+cd dist
+
+# 初始化 git 仓库并推送到 gh-pages 分支
+git init
+git add -A
+git commit -m 'deploy'
+git push -f git@github.com:<你的用户名>/HomePage.git master:gh-pages
+
+cd -
+```
+
+### 自定义域名（可选）
+
+如果你有自定义域名：
+
+1. 在 `public` 目录创建 `CNAME` 文件，内容为你的域名
+2. 在域名提供商处配置 DNS 记录指向 GitHub Pages
+3. 在仓库 Settings → Pages 中设置自定义域名
+
+### 注意事项
+
+- 确保 `vite.config.js` 中的 `base` 路径设置正确（当前设置为 `/HomePage/`）
+- 如果你的仓库名不是 `HomePage`，需要修改 `vite.config.js` 中的 base 路径
+- GitHub Pages 可能需要几分钟才能更新内容
 

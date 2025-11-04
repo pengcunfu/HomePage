@@ -5,7 +5,7 @@
       <div class="text-center mb-16" data-aos="fade-up">
         <h5 class="text-primary-600 font-semibold mb-2 uppercase tracking-wider">我的技能</h5>
         <h2 class="section-title mb-4">技术栈与专业技能</h2>
-        <div class="w-16 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full mx-auto mb-6"></div>
+        <div class="w-16 h-1 bg-primary-500 rounded-full mx-auto mb-6"></div>
         <p class="section-subtitle max-w-2xl mx-auto">
           多年的开发经验让我掌握了全栈开发所需的各种技术，从前端框架到后端服务，从数据库到云部署。
         </p>
@@ -21,7 +21,7 @@
           :data-aos-delay="index * 200"
         >
           <div class="mb-6">
-            <div class="w-16 h-16 mx-auto bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center text-white text-2xl group-hover:scale-110 transition-transform duration-300">
+            <div class="w-16 h-16 mx-auto bg-primary-500 rounded-xl flex items-center justify-center text-white text-2xl group-hover:scale-110 transition-transform duration-300">
               <component :is="category.icon" :size="32" />
             </div>
           </div>
@@ -52,7 +52,7 @@
             >
               <div class="flex justify-between items-center mb-3">
                 <div class="flex items-center">
-                  <div class="w-8 h-8 mr-3 rounded-lg bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
+                  <div class="w-8 h-8 mr-3 rounded-lg bg-primary-500 flex items-center justify-center">
                     <component :is="skill.icon" :size="16" class="text-white" />
                   </div>
                   <span class="font-medium text-gray-800">{{ skill.name }}</span>
@@ -64,7 +64,7 @@
                   class="skill-progress relative overflow-hidden"
                   :style="{ width: skillsInView ? skill.level + '%' : '0%' }"
                 >
-                  <div class="absolute inset-0 bg-gradient-to-r from-primary-500 to-secondary-500"></div>
+                  <div class="absolute inset-0 bg-primary-500"></div>
                   <div class="absolute inset-0 bg-white opacity-20 animate-pulse"></div>
                 </div>
               </div>
@@ -85,7 +85,7 @@
                 :key="softSkill.name"
                 class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-primary-50 transition-colors duration-200"
               >
-                <div class="w-8 h-8 mr-3 rounded-lg bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
+                <div class="w-8 h-8 mr-3 rounded-lg bg-green-500 flex items-center justify-center">
                   <component :is="softSkill.icon" :size="16" class="text-white" />
                 </div>
                 <span class="text-sm font-medium text-gray-700">{{ softSkill.name }}</span>
@@ -100,9 +100,9 @@
               <div 
                 v-for="cert in certifications"
                 :key="cert.name"
-                class="flex items-center p-4 bg-gradient-to-r from-white to-gray-50 rounded-lg border border-gray-200 hover:border-primary-200 hover:shadow-md transition-all duration-200"
+                class="flex items-center p-4 bg-gray-50 rounded-lg border border-gray-200 hover:border-primary-200 hover:shadow-md transition-all duration-200"
               >
-                <div class="w-10 h-10 mr-4 rounded-lg bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
+                <div class="w-10 h-10 mr-4 rounded-lg bg-yellow-500 flex items-center justify-center">
                   <Award :size="20" class="text-white" />
                 </div>
                 <div>
@@ -265,7 +265,7 @@ onMounted(() => {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background: rgba(255,255,255,0.4);
   transform: translateX(-100%);
   animation: shimmer 2s ease-out;
 }
