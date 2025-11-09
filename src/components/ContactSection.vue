@@ -47,7 +47,7 @@
                 </div>
               </div>
             </div>
-
+          </div>
           
           <!-- 次要信息 -->
           <div class="grid md:grid-cols-2 gap-8">
