@@ -166,7 +166,8 @@ const jobTitleElement = ref(null)
 
 // 技能列表
 const skills = ref([
-  'Vue.js', 'React', 'Node.js', 'Python', 'Java', 'Go', 'Docker', 'AWS'
+  'C/C++', 'Java', 'Python', 'Go', 'Android', 'Flutter', 'Vue.js', 'React', 
+  'Node.js', 'Rust', 'Kotlin', 'Docker', 'K8s', 'Linux', '微服务', '大数据'
 ])
 
 // 社交链接

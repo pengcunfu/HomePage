@@ -158,10 +158,10 @@ const skillInView = ref(false)
 
 // 技能数据
 const skills = ref([
-  { name: '前端开发 (Vue/React)', level: 90, delay: 100 },
-  { name: '后端开发 (Node.js/Python)', level: 85, delay: 200 },
-  { name: '数据库设计', level: 80, delay: 300 },
-  { name: '云服务部署', level: 75, delay: 400 }
+  { name: 'Web 全栈开发 (Vue/React/Node.js)', level: 95, delay: 100 },
+  { name: '移动端开发 (Android/Flutter)', level: 90, delay: 200 },
+  { name: '系统编程 (C/C++/Java/Go)', level: 92, delay: 300 },
+  { name: 'DevOps & 云原生 (Docker/K8s)', level: 87, delay: 400 }
 ])
 
 // 滚动到指定区域

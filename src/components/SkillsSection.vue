@@ -158,58 +158,73 @@ const skillsInView = ref(false)
 // 技能分类
 const skillCategories = ref([
   {
-    title: '前端开发',
-    description: '现代化的用户界面设计与开发',
+    title: 'Web 全栈开发',
+    description: '前后端一体化开发与架构设计',
     icon: Code,
-    skills: ['Vue.js', 'React', 'TypeScript', 'Tailwind CSS', 'Vite']
+    skills: ['Vue.js', 'React', 'Node.js', 'TypeScript', 'Electron', 'uniapp', 'Taro', '小程序']
   },
   {
-    title: '后端开发', 
-    description: '高性能的服务端应用架构',
+    title: '移动端开发', 
+    description: '跨平台移动应用开发',
     icon: Database,
-    skills: ['Node.js', 'Python', 'Java', 'Go', 'Express', 'FastAPI']
+    skills: ['Android', 'Flutter', 'Dart', 'Kotlin', 'HarmonyOS', 'uniapp', 'React Native']
   },
   {
-    title: '云服务 & DevOps',
-    description: '现代化的部署与运维方案',
+    title: '系统级开发',
+    description: '底层系统与高性能应用',
     icon: Cloud,
-    skills: ['Docker', 'Kubernetes', 'AWS', 'CI/CD', 'Nginx']
+    skills: ['C/C++', 'Rust', 'Go', 'Java', 'C#/.NET', 'Python', 'Scala', 'PHP']
   }
 ])
 
 // 技术技能
 const technicalSkills = ref([
-  { name: 'JavaScript/TypeScript', level: 95, icon: Code },
-  { name: 'Vue.js & React', level: 90, icon: Code },
-  { name: 'Node.js & Python', level: 85, icon: Database },
-  { name: 'Database Design', level: 80, icon: Database },
-  { name: 'Cloud Architecture', level: 75, icon: Cloud },
-  { name: 'DevOps & CI/CD', level: 70, icon: Cloud }
+  { name: 'Web 全栈开发', level: 95, icon: Code },
+  { name: 'Android/移动端开发', level: 90, icon: Code },
+  { name: 'C/C++/系统编程', level: 88, icon: Database },
+  { name: 'Java/Kotlin/Go', level: 92, icon: Database },
+  { name: 'Python/数据分析', level: 85, icon: Cloud },
+  { name: 'DevOps & 云原生', level: 87, icon: Cloud }
 ])
 
 // 软技能
 const softSkills = ref([
-  { name: '团队协作', icon: Users },
-  { name: '沟通能力', icon: MessageSquare },
-  { name: '问题解决', icon: Target },
-  { name: '时间管理', icon: Clock },
-  { name: '创新思维', icon: Lightbulb },
+  { name: '项目管理', icon: Users },
+  { name: '团队协作', icon: MessageSquare },
+  { name: '架构设计', icon: Target },
+  { name: '性能优化', icon: Clock },
+  { name: '技术选型', icon: Lightbulb },
   { name: '持续学习', icon: Heart }
 ])
 
-// 认证
+// 认证与专业领域
 const certifications = ref([
-  { name: 'AWS Certified Solutions Architect', issuer: 'Amazon Web Services' },
-  { name: 'Google Cloud Professional', issuer: 'Google Cloud' },
-  { name: 'Certified Kubernetes Administrator', issuer: 'Cloud Native Computing Foundation' }
+  { name: '软件工程', issuer: '系统架构与工程化' },
+  { name: '大数据技术', issuer: '数据处理与分析' },
+  { name: '计算机科学基础', issuer: '算法、数据结构、设计模式' }
 ])
 
 // 技能标签
 const skillTags = ref([
-  'JavaScript', 'TypeScript', 'Vue.js', 'React', 'Node.js', 'Python', 'Java', 'Go',
-  'Express', 'FastAPI', 'Spring Boot', 'MongoDB', 'PostgreSQL', 'Redis', 'Docker',
-  'Kubernetes', 'AWS', 'GCP', 'CI/CD', 'Git', 'Linux', 'Nginx', 'Webpack', 'Vite',
-  'Tailwind CSS', 'SASS', 'REST API', 'GraphQL', 'WebSocket', 'Microservices'
+  // 编程语言
+  'C/C++', 'C#/.NET', 'Java', 'Kotlin', 'Python', 'Go', 'Rust', 'Scala', 'PHP', 'Dart',
+  'JavaScript', 'TypeScript',
+  // Web 前端
+  'Vue.js', 'React', 'Electron', 'uniapp', 'Taro', '小程序', 'Webpack', 'Vite',
+  'Tailwind CSS', 'SASS',
+  // 移动端
+  'Android', 'Flutter', 'HarmonyOS', 'React Native',
+  // 后端框架
+  'Node.js', 'Express', 'Spring Boot', 'FastAPI', 'Django',
+  // 数据库
+  'MySQL', 'PostgreSQL', 'MongoDB', 'Redis', 'Oracle', 'SQLite',
+  // DevOps & 云原生
+  'Docker', 'Kubernetes', 'K8s', 'CI/CD', 'Git', 'Linux', 'Windows', 'Nginx',
+  // 架构与工程
+  '微服务', 'REST API', 'GraphQL', 'WebSocket', '编译原理', '操作系统',
+  '计算机网络', '数据结构', '算法', '设计模式',
+  // 专业领域
+  '大数据', '数据分析', '网络爬虫', '网络抓包', '自动化测试', '安全测试', '自动化'
 ])
 
 // 获取标签样式

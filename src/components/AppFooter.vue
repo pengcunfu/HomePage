@@ -232,19 +232,20 @@ const quickLinks = ref([
 
 // 服务项目
 const services = ref([
-  '前端开发',
-  '后端开发',
-  '全栈应用',
-  '移动应用',
-  '技术咨询',
-  '系统维护'
+  'Web 全栈开发',
+  'Android 移动开发',
+  '桌面应用开发',
+  '系统级编程',
+  '大数据处理',
+  'DevOps 自动化'
 ])
 
 // 浮动技能标签
 const floatingSkills = ref([
-  'Vue.js', 'React', 'TypeScript', 'Node.js', 'Python', 'Java', 'Go',
-  'Docker', 'Kubernetes', 'AWS', 'MongoDB', 'Redis', 'GraphQL',
-  'Webpack', 'Vite', 'Tailwind', 'SASS', 'Git', 'CI/CD'
+  'C/C++', 'Java', 'Kotlin', 'Python', 'Go', 'Rust', 'Scala', 'C#/.NET',
+  'Vue.js', 'React', 'Android', 'Flutter', 'HarmonyOS', 'Electron',
+  'Node.js', 'Spring Boot', 'Docker', 'Kubernetes', 'Linux', 'Git',
+  'MySQL', 'Redis', 'MongoDB', '微服务', '大数据', '数据分析'
 ])
 
 // 滚动到指定区域
