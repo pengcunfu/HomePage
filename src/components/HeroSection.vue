@@ -79,11 +79,11 @@
                 :key="social.name"
                 :href="social.url"
                 :aria-label="social.name"
-                class="p-2 text-dark-400 hover:text-primary-600 transition-colors duration-300 hover:scale-110 transform"
+                class="p-2 hover:scale-110 transform transition-all duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <component :is="social.icon" :size="24" />
+                <img :src="social.icon" :alt="social.name" class="w-6 h-6 opacity-70 hover:opacity-100 transition-opacity" />
               </a>
             </div>
           </div>
@@ -151,8 +151,14 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { ArrowRight, Mail, Github, Linkedin, Twitter, Code, Award, ChevronDown, BookOpen } from 'lucide-vue-next'
+import { ArrowRight, Mail, ChevronDown } from 'lucide-vue-next'
 import Typed from 'typed.js'
+
+// 导入 SVG 图标
+import GithubIcon from '@/assets/icons/github.svg'
+import CsdnIcon from '@/assets/icons/csdn.svg'
+import GiteeIcon from '@/assets/icons/gitee.svg'
+import ZhihuIcon from '@/assets/icons/zhihu.svg'
 
 // 响应式数据
 const typedElement = ref(null)
@@ -168,22 +174,22 @@ const socialLinks = ref([
   {
     name: 'GitHub',
     url: 'https://github.com/pengcunfu',
-    icon: Github
+    icon: GithubIcon
   },
   {
     name: 'CSDN',
     url: 'https://blog.csdn.net/HuaQi666',
-    icon: Code
+    icon: CsdnIcon
   },
   {
     name: 'Gitee',
     url: 'https://gitee.com/huaqiwill',
-    icon: Code
+    icon: GiteeIcon
   },
   {
     name: '知乎',
     url: 'https://www.zhihu.com/people/super-10-33-97',
-    icon: BookOpen
+    icon: ZhihuIcon
   }
 ])
 
