@@ -117,13 +117,13 @@
       <!-- 成就时间线 -->
       <div class="mt-20" data-aos="fade-up">
         <h3 class="text-2xl font-bold text-center mb-12">近期成就</h3>
-        <div class="max-w-4xl mx-auto">
-          <div class="space-y-6">
+        <div class="max-w-6xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-6">
             <div
               v-for="(achievement, index) in achievements"
               :key="achievement.id"
               class="flex items-center space-x-6 p-6 bg-white/10 backdrop-blur-md rounded-xl hover:bg-white/20 transition-all duration-300"
-              data-aos="fade-right"
+              data-aos="fade-up"
               :data-aos-delay="index * 100"
             >
               <!-- 图标 -->
