@@ -153,7 +153,7 @@ const contactInfo = ref([
     description: '远程工作，也可面对面沟通',
     icon: MapPin,
     items: [
-      { text: '中国', link: '#' }
+      { text: '中国.湖北.武汉', link: '#' }
     ]
   }
 ])

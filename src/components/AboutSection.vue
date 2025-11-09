@@ -74,7 +74,7 @@
                   </div>
                   <div class="flex items-center">
                     <MapPin :size="16" class="mr-2 text-primary-500" />
-                    <span>中国</span>
+                    <span>中国.湖北.武汉</span>
                   </div>
                   <div class="flex items-center">
                     <Calendar :size="16" class="mr-2 text-primary-500" />
