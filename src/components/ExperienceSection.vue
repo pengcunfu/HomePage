@@ -123,8 +123,8 @@
       <!-- 技能发展路径 -->
       <div class="mt-20" data-aos="fade-up">
         <h3 class="text-2xl lg:text-3xl font-bold text-center text-gray-900 mb-12">技能发展历程</h3>
-        <div class="max-w-6xl mx-auto">
-          <div class="grid md:grid-cols-3 gap-8">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div v-for="(phase, index) in skillPhases" :key="phase.id" class="skill-phase-card" data-aos="fade-up"
               :data-aos-delay="index * 200">
               <!-- 阶段图标 -->
@@ -163,7 +163,10 @@ import {
   Cloud,
   Rocket,
   Target,
-  Trophy
+  Trophy,
+  Zap,
+  Award,
+  Star
 } from 'lucide-vue-next'
 
 // 工作经验数据
@@ -235,7 +238,7 @@ const educations = ref([
     id: 1,
     degree: '计算机应用技术 专科',
     school: '武汉交通职业学院',
-    duration: '2021年9月 - 2025年6月',
+    duration: '2021年9月 - 2024年6月',
     description: '主修计算机科学与技术专业，系统学习了计算机基础理论、编程语言、数据结构与算法、数据库原理等核心课程。',
     highlights: ['数据结构与算法', '计算机网络', '数据库原理', '软件工程', '操作系统']
   },
@@ -243,7 +246,7 @@ const educations = ref([
     id: 2,
     degree: '软件工程 学士学位',
     school: '湖北工程学院',
-    duration: '2025年9月 - 2026年6月',
+    duration: '2024年9月 - 2026年6月',
     description: '主修计算机科学与技术专业，系统学习了计算机基础理论、编程语言、数据结构与算法、数据库原理等核心课程。',
     highlights: ['数据结构与算法', '计算机网络', '数据库原理', '软件工程', '操作系统']
   },
@@ -261,44 +264,80 @@ const educations = ref([
 const skillPhases = ref([
   {
     id: 1,
-    title: '入门阶段',
-    period: '2019 - 2020',
+    title: '基础入门',
+    period: '2018 - 2019',
     icon: Target,
     skills: [
       'HTML/CSS基础',
       'JavaScript基础',
-      'Vue.js入门',
+      'C/C++编程',
       'Git版本控制',
-      'Linux基本操作',
-      '数据库基础'
+      'Linux基本操作'
     ]
   },
   {
     id: 2,
-    title: '成长阶段',
-    period: '2020 - 2022',
-    icon: Rocket,
+    title: 'Web开发',
+    period: '2019 - 2020',
+    icon: Code,
     skills: [
-      'React/Vue.js进阶',
-      'Node.js后端开发',
-      'RESTful API设计',
+      'Vue.js/React框架',
+      'Node.js后端',
       'MySQL/MongoDB',
-      'Docker容器化',
-      '测试驱动开发'
+      'RESTful API',
+      'Webpack构建'
     ]
   },
   {
     id: 3,
-    title: '专家阶段',
-    period: '2022 - 至今',
+    title: '移动端拓展',
+    period: '2020 - 2021',
+    icon: Rocket,
+    skills: [
+      'Android开发',
+      'Flutter跨平台',
+      'Kotlin/Dart',
+      'uniapp/Taro',
+      '小程序开发'
+    ]
+  },
+  {
+    id: 4,
+    title: '全栈进阶',
+    period: '2021 - 2022',
+    icon: Zap,
+    skills: [
+      'Java/Go后端',
+      'Spring Boot',
+      'Docker容器化',
+      '微服务架构',
+      'Redis缓存'
+    ]
+  },
+  {
+    id: 5,
+    title: '云原生实践',
+    period: '2022 - 2023',
     icon: Cloud,
     skills: [
-      '微服务架构',
-      '云原生技术',
       'Kubernetes编排',
+      'CI/CD自动化',
+      '云平台部署',
       '性能优化',
-      '团队领导',
-      '架构设计'
+      '监控告警'
+    ]
+  },
+  {
+    id: 6,
+    title: '架构专家',
+    period: '2023 - 至今',
+    icon: Award,
+    skills: [
+      '系统架构设计',
+      '大数据处理',
+      '团队技术管理',
+      '技术选型决策',
+      '性能调优'
     ]
   }
 ])
