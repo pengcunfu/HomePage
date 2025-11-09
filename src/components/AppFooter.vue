@@ -7,11 +7,6 @@
           <!-- 品牌信息 -->
           <div class="lg:col-span-2">
             <div class="flex items-center space-x-3 mb-6">
-              <img 
-                src="@/assets/images/logo.svg" 
-                alt="彭存福" 
-                class="h-10 w-10"
-              />
               <span class="text-2xl font-bold text-primary-600">彭存福</span>
             </div>
             <p class="text-gray-300 mb-6 leading-relaxed max-w-md">

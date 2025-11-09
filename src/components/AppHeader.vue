@@ -10,11 +10,7 @@
         <!-- Logo -->
         <div class="flex items-center">
           <router-link to="/" class="flex items-center">
-            <img 
-              src="@/assets/images/logo.svg" 
-              alt="彭存福" 
-              class="h-20 w-20 lg:h-24 lg:w-24"
-            />
+            <span class="text-2xl font-bold text-primary-600 hover:text-primary-700 transition-colors duration-300">彭存福</span>
           </router-link>
         </div>
         
