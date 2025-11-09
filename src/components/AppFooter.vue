@@ -26,11 +26,11 @@
                 :key="social.name"
                 :href="social.url"
                 :aria-label="social.name"
-                class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-primary-600 transition-all duration-300 transform hover:scale-110"
+                class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-all duration-300 transform hover:scale-110"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <component :is="social.icon" :size="18" />
+                <img :src="social.icon" :alt="social.name" class="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity" />
               </a>
             </div>
 
@@ -181,36 +181,42 @@ import {
   CheckCircle, 
   Heart, 
   Globe, 
-  ArrowUp,
-  Github,
-  Linkedin,
-  Twitter,
-  Code,
-  BookOpen
+  ArrowUp
 } from 'lucide-vue-next'
+
+// 导入 SVG 图标
+import GithubIcon from '@/assets/icons/github.svg'
+import CsdnIcon from '@/assets/icons/csdn.svg'
+import GiteeIcon from '@/assets/icons/gitee.svg'
+import ZhihuIcon from '@/assets/icons/zhihu.svg'
 
 // 当前年份
 const currentYear = computed(() => new Date().getFullYear())
 
 // 最后更新时间
-const lastUpdated = ref('2024-09-25')
+const lastUpdated = ref('2025-11-09')
 
 // 社交链接
 const socialLinks = ref([
   {
     name: 'GitHub',
     url: 'https://github.com/pengcunfu',
-    icon: Github
+    icon: GithubIcon
+  },
+  {
+    name: 'CSDN',
+    url: 'https://blog.csdn.net/HuaQi666',
+    icon: CsdnIcon
   },
   {
     name: 'Gitee',
     url: 'https://gitee.com/huaqiwill',
-    icon: Code
+    icon: GiteeIcon
   },
   {
     name: '知乎',
     url: 'https://www.zhihu.com/people/super-10-33-97',
-    icon: BookOpen
+    icon: ZhihuIcon
   }
 ])
 

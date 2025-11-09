@@ -246,7 +246,7 @@ const achievements = ref([
     id: 1,
     title: '项目成功交付',
     description: '按时高质量交付大型SaaS平台项目',
-    date: '2024年8月',
+    date: '2025年8月',
     value: '100%',
     metric: '按时交付率',
     icon: Trophy
@@ -255,7 +255,7 @@ const achievements = ref([
     id: 2,
     title: '性能优化成果',
     description: '系统响应时间优化至毫秒级别',
-    date: '2024年6月',
+    date: '2025年6月',
     value: '50%',
     metric: '性能提升',
     icon: Zap
@@ -264,7 +264,7 @@ const achievements = ref([
     id: 3,
     title: '团队技能提升',
     description: '指导团队成员掌握新技术栈',
-    date: '2024年4月',
+    date: '2025年4月',
     value: '5',
     metric: '团队成员',
     icon: Target
@@ -273,7 +273,7 @@ const achievements = ref([
     id: 4,
     title: '技术创新',
     description: '引入微服务架构提升系统扩展性',
-    date: '2024年2月',
+    date: '2025年2月',
     value: '300%',
     metric: '扩展性提升',
     icon: Rocket

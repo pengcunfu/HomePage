@@ -310,7 +310,7 @@ const projects = ref([
     githubUrl: '#',
     stars: 45,
     forks: 12,
-    year: '2024',
+    year: '2025',
     duration: '3个月'
   },
   {
@@ -333,7 +333,7 @@ const projects = ref([
     githubUrl: '#',
     stars: 67,
     forks: 23,
-    year: '2024',
+    year: '2025',
     duration: '2个月'
   },
   {
@@ -425,7 +425,7 @@ const projects = ref([
     githubUrl: '#',
     stars: 78,
     forks: 25,
-    year: '2024',
+    year: '2025',
     duration: '4个月'
   }
 ])
