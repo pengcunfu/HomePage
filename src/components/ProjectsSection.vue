@@ -276,6 +276,11 @@ import {
   X 
 } from 'lucide-vue-next'
 
+// 导入图片
+import project1Img from '@/assets/images/project-1.jpg'
+import project2Img from '@/assets/images/project-2.jpg'
+import project3Img from '@/assets/images/project-3.jpg'
+
 // 响应式数据
 const activeFilter = ref('全部')
 const selectedProject = ref(null)
@@ -290,7 +295,7 @@ const projects = ref([
     title: 'CSDN 博客采集系统',
     description: '基于Python开发的智能博客内容采集与分析系统，支持多平台数据采集。',
     fullDescription: '这是一个功能强大的博客采集系统，支持从CSDN等技术博客平台自动采集文章内容，进行智能分析和分类。系统具备高并发处理能力，支持分布式部署，并提供丰富的数据可视化功能。',
-    image: '/src/assets/images/project-3.jpg',
+    image: project3Img,
     category: '后端',
     technologies: ['Python', 'Scrapy', 'Redis', 'MongoDB', 'Docker'],
     features: [
@@ -313,7 +318,7 @@ const projects = ref([
     title: '小红书自动化系统',
     description: '基于Python的小红书内容自动化发布与管理系统，提供内容调度和数据分析功能。',
     fullDescription: '专为内容创作者设计的自动化运营工具，支持内容的定时发布、数据监控、粉丝互动管理等功能。系统采用模块化设计，易于扩展和维护。',
-    image: '/src/assets/images/project-1.jpg',
+    image: project1Img,
     category: '工具',
     technologies: ['Python', 'Selenium', 'FastAPI', 'Vue.js', 'MySQL'],
     features: [
@@ -336,7 +341,7 @@ const projects = ref([
     title: '个人博客平台',
     description: '基于SpringBoot + Vue开发的现代化博客平台，支持Markdown编辑和多媒体内容。',
     fullDescription: '一个功能完整的博客平台，支持文章发布、评论系统、标签分类、用户管理等功能。前端采用Vue.js构建，后端使用SpringBoot，数据库使用MySQL。',
-    image: '/src/assets/images/project-2.jpg',
+    image: project2Img,
     category: '全栈',
     technologies: ['SpringBoot', 'Vue.js', 'MySQL', 'Redis', 'ElementUI'],
     features: [
@@ -359,7 +364,7 @@ const projects = ref([
     title: '推荐系统',
     description: '基于机器学习的智能推荐系统，支持多种推荐算法和实时个性化推荐。',
     fullDescription: '采用协同过滤、内容推荐等多种算法的推荐系统，能够根据用户行为数据提供个性化推荐。系统支持A/B测试和效果评估。',
-    image: '/src/assets/images/project-1.jpg',
+    image: project1Img,
     category: '后端',
     technologies: ['SpringBoot', 'Python', 'TensorFlow', 'Kafka', 'Elasticsearch'],
     features: [
@@ -382,7 +387,7 @@ const projects = ref([
     title: '秒杀系统',
     description: '高并发秒杀系统，采用Redis缓存和消息队列确保系统稳定性。',
     fullDescription: '专为电商场景设计的高并发秒杀系统，能够处理大量用户同时抢购的场景。系统采用多级缓存、消息队列、限流等技术保证稳定性。',
-    image: '/src/assets/images/project-1.jpg',
+    image: project1Img,
     category: '后端',
     technologies: ['SpringBoot', 'Redis', 'RabbitMQ', 'MySQL', 'Nginx'],
     features: [
@@ -405,7 +410,7 @@ const projects = ref([
     title: '配音系统',
     description: '基于AI的智能配音系统，支持多语言文本转语音和语音合成。',
     fullDescription: '集成了先进的TTS技术的配音系统，支持多种音色和语言。提供API接口和Web界面，适用于视频制作、有声读物等场景。',
-    image: '/src/assets/images/project-1.jpg',
+    image: project1Img,
     category: '前端',
     technologies: ['Vue.js', 'Python', 'TensorFlow', 'WebRTC', 'FFmpeg'],
     features: [
