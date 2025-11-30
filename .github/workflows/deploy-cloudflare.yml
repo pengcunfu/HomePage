@@ -34,6 +34,13 @@ jobs:
         env:
           CF_PAGES: 1
 
+      - name: Debug secrets
+        run: |
+          echo "API Token length: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}"
+          echo "Account ID exists: ${{ secrets.CLOUDFLARE_ACCOUNT_ID != '' }}"
+          echo "API Token is set: ${{ secrets.CLOUDFLARE_API_TOKEN && 'true' || 'false' }}"
+          echo "Account ID is set: ${{ secrets.CLOUDFLARE_ACCOUNT_ID && 'true' || 'false' }}"
+
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
