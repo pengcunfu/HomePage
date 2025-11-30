@@ -28,15 +28,15 @@ jobs:
         uses: actions/setup-node@v4  # 设置 Node.js 运行环境
         with:
           node-version: '20'          # 使用 Node.js 20 版本
-          cache: 'yarn'               # 启用 yarn 包管理器的缓存以加速构建
+          cache: 'npm'                # 启用 npm 包管理器的缓存以加速构建
 
       # 第三步：安装项目依赖
       - name: 安装项目依赖包
-        run: yarn install --frozen-lockfile  # 使用 yarn 安装依赖，frozen-lockfile 确保版本一致性
+        run: npm ci                   # 使用 npm ci 安装依赖，确保依赖版本一致
 
       # 第四步：构建项目
       - name: 构建生产版本
-        run: yarn build  # 执行构建命令，生成可部署的静态文件
+        run: npm run build            # 使用 npm 执行构建命令，生成可部署的静态文件
         env:
           CF_PAGES: 1  # 设置 Cloudflare Pages 环境变量
 
