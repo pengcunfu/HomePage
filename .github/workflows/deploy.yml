@@ -44,6 +44,20 @@ jobs:
       - name: 构建生产版本
         run: npm run build            # 使用 npm 执行构建命令，生成可部署的静态文件
 
+      # 检查构建结果
+      - name: 检查构建输出
+        run: |
+          echo "构建目录内容："
+          ls -la dist/
+          echo "检查 index.html 是否存在："
+          if [ -f "dist/index.html" ]; then
+            echo "✅ index.html 存在"
+            head -10 dist/index.html
+          else
+            echo "❌ index.html 不存在"
+            exit 1
+          fi
+
       # 第五步：配置 GitHub Pages
       - name: 配置 GitHub Pages 环境
         uses: actions/configure-pages@v4  # 设置 GitHub Pages 所需的基础配置

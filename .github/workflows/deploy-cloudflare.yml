@@ -40,6 +40,19 @@ jobs:
         env:
           CF_PAGES: 1  # 设置 Cloudflare Pages 环境变量
 
+      # 检查构建结果
+      - name: 检查构建输出
+        run: |
+          echo "构建目录内容："
+          ls -la dist/
+          echo "检查 index.html 是否存在："
+          if [ -f "dist/index.html" ]; then
+            echo "✅ index.html 存在"
+          else
+            echo "❌ index.html 不存在"
+            exit 1
+          fi
+
       # 第五步：部署到 Cloudflare Pages
       - name: 部署到 Cloudflare Pages
         uses: cloudflare/pages-action@v1
