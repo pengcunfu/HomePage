@@ -10,7 +10,7 @@
         <!-- Logo -->
         <div class="flex items-center">
           <router-link to="/" class="flex items-center">
-            <span class="text-2xl font-bold text-primary-600 hover:text-primary-700 transition-colors duration-300">彭存福</span>
+            <span class="text-2xl font-bold text-primary-600 hover:text-primary-700 transition-colors duration-300">黎明怀羽</span>
           </router-link>
         </div>
         

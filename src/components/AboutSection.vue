@@ -1,49 +1,9 @@
 <template>
   <section id="about" class="py-20 lg:py-32 bg-gray-50">
     <div class="container-custom">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <!-- 左侧图片 -->
-        <div class="order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
-          <div class="relative">
-            <!-- 主图片 -->
-            <div class="relative z-10">
-              <img
-                src="@/assets/images/about_hero.png"
-                alt="关于彭存福"
-                class="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
-              />
-            </div>
-            
-            <!-- 背景装饰 -->
-            <div class="absolute inset-0 bg-primary-400 rounded-2xl transform rotate-6 scale-105 opacity-20"></div>
-            
-            <!-- 技能徽章 -->
-            <div 
-              class="absolute -top-6 -right-6 bg-white rounded-full p-4 shadow-lg"
-              data-aos="zoom-in"
-              data-aos-delay="500"
-            >
-              <div class="text-center">
-                <div class="text-2xl font-bold text-primary-600">5+</div>
-                <div class="text-xs text-gray-600">年经验</div>
-              </div>
-            </div>
-            
-            <div 
-              class="absolute -bottom-6 -left-6 bg-white rounded-full p-4 shadow-lg"
-              data-aos="zoom-in"
-              data-aos-delay="700"
-            >
-              <div class="text-center">
-                <div class="text-2xl font-bold text-secondary-600">100+</div>
-                <div class="text-xs text-gray-600">项目</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- 右侧内容 -->
-        <div class="order-1 lg:order-2" data-aos="fade-left" data-aos-duration="1000">
+      <div class="max-w-4xl mx-auto">
+        <!-- 主要内容 -->
+        <div class="space-y-12" data-aos="fade-up" data-aos-duration="1000">
           <!-- 标题部分 -->
           <div class="mb-8">
             <h5 class="text-primary-600 font-semibold mb-2 uppercase tracking-wider">关于我</h5>
@@ -64,7 +24,27 @@
               同时对云计算、微服务架构和DevOps也有丰富的实践经验。
             </p>
             
-            <div class="grid md:grid-cols-2 gap-6 mt-8">
+            <!-- 统计数据卡片 -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 my-8">
+              <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div class="text-3xl font-bold text-primary-600 mb-2">5+</div>
+                <div class="text-sm text-gray-600">年开发经验</div>
+              </div>
+              <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div class="text-3xl font-bold text-secondary-600 mb-2">100+</div>
+                <div class="text-sm text-gray-600">完成项目</div>
+              </div>
+              <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div class="text-3xl font-bold text-green-600 mb-2">50+</div>
+                <div class="text-sm text-gray-600">技术栈</div>
+              </div>
+              <div class="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div class="text-3xl font-bold text-purple-600 mb-2">10+</div>
+                <div class="text-sm text-gray-600">开源贡献</div>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
               <div class="space-y-4">
                 <h4 class="font-semibold text-gray-900 mb-3">个人信息</h4>
                 <div class="space-y-2 text-sm text-gray-600">
@@ -82,7 +62,7 @@
                   </div>
                 </div>
               </div>
-              
+
               <div class="space-y-4">
                 <h4 class="font-semibold text-gray-900 mb-3">专业领域</h4>
                 <div class="space-y-2 text-sm text-gray-600">
@@ -181,7 +161,7 @@ const downloadResume = () => {
   // 这里可以实现简历下载功能
   const link = document.createElement('a')
   link.href = '/resume.pdf' // 假设简历文件路径
-  link.download = '彭存福_简历.pdf'
+  link.download = '黎明怀羽_简历.pdf'
   link.click()
 }
 

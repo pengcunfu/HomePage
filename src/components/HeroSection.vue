@@ -9,9 +9,9 @@
     <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
     
     <div class="container-custom relative z-10">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <!-- 左侧内容 -->
-        <div class="space-y-8" data-aos="fade-right" data-aos-duration="1000">
+      <div class="max-w-4xl mx-auto text-center lg:text-left">
+        <!-- 主要内容 -->
+        <div class="space-y-8" data-aos="fade-up" data-aos-duration="1000">
           <!-- 问候语 -->
           <div class="inline-flex items-center px-2 py-1.5 xs:px-3 xs:py-2 sm:px-4 sm:py-2 bg-primary-50 rounded-full text-primary-700 font-medium text-xs xs:text-sm sm:text-base max-w-fit">
             <span class="w-1.5 h-1.5 xs:w-2 xs:h-2 bg-primary-500 rounded-full mr-1.5 xs:mr-2 animate-pulse flex-shrink-0"></span>
@@ -22,7 +22,7 @@
           <div class="space-y-4">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-heading">
               <span class="block text-dark-900">我是</span>
-              <span class="block text-gradient" ref="typedElement">彭存福</span>
+              <span class="block text-gradient" ref="typedElement">黎明怀羽</span>
             </h1>
             
             <!-- 职业描述 -->
@@ -71,7 +71,7 @@
           </div>
           
           <!-- 社交链接 -->
-          <div class="flex items-center space-x-6" data-aos="fade-up" data-aos-delay="800">
+          <div class="flex justify-center lg:justify-start items-center space-x-6" data-aos="fade-up" data-aos-delay="800">
             <span class="text-dark-500 font-medium">关注我：</span>
             <div class="flex space-x-4">
               <a
@@ -87,48 +87,30 @@
               </a>
             </div>
           </div>
-        </div>
-        
-        <!-- 右侧图片 -->
-        <div class="relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-          <!-- 主图片 -->
-          <div class="relative z-10">
-            <img
-              src="@/assets/images/hero.png"
-              alt="彭存福"
-              class="w-full max-w-lg mx-auto animate-float"
-            />
-          </div>
-          
-          <!-- 装饰卡片 -->
-          <div 
-            class="absolute top-20 -left-4 bg-white rounded-lg shadow-lg p-4 transform -rotate-6 hover:rotate-0 transition-transform duration-300"
-            data-aos="zoom-in"
-            data-aos-delay="1000"
-          >
-            <div class="flex items-center space-x-3">
-              <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
-                <Code :size="24" class="text-primary-600" />
-              </div>
-              <div>
-                <div class="font-semibold text-dark-900">5+</div>
-                <div class="text-sm text-dark-500">年开发经验</div>
+
+          <!-- 统计卡片区域 -->
+          <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start mt-8" data-aos="fade-up" data-aos-delay="1000">
+            <div class="bg-white rounded-lg shadow-lg p-6 transform hover:scale-105 transition-all duration-300">
+              <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
+                  <Code :size="24" class="text-primary-600" />
+                </div>
+                <div>
+                  <div class="font-semibold text-dark-900 text-lg">5+</div>
+                  <div class="text-sm text-dark-500">年开发经验</div>
+                </div>
               </div>
             </div>
-          </div>
-          
-          <div 
-            class="absolute bottom-20 -right-4 bg-white rounded-lg shadow-lg p-4 transform rotate-6 hover:rotate-0 transition-transform duration-300"
-            data-aos="zoom-in"
-            data-aos-delay="1200"
-          >
-            <div class="flex items-center space-x-3">
-              <div class="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center">
-                <Award :size="24" class="text-secondary-600" />
-              </div>
-              <div>
-                <div class="font-semibold text-dark-900">100+</div>
-                <div class="text-sm text-dark-500">项目完成</div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6 transform hover:scale-105 transition-all duration-300">
+              <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center">
+                  <Award :size="24" class="text-secondary-600" />
+                </div>
+                <div>
+                  <div class="font-semibold text-dark-900 text-lg">100+</div>
+                  <div class="text-sm text-dark-500">项目完成</div>
+                </div>
               </div>
             </div>
           </div>
@@ -151,7 +133,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { ArrowRight, Mail, ChevronDown } from 'lucide-vue-next'
+import { ArrowRight, Mail, ChevronDown, Code, Award } from 'lucide-vue-next'
 import Typed from 'typed.js'
 
 // 导入 SVG 图标
@@ -215,7 +197,7 @@ onMounted(() => {
   // 初始化打字机效果
   if (typedElement.value) {
     new Typed(typedElement.value, {
-      strings: ['彭存福', '全栈开发者', '编程爱好者'],
+      strings: ['黎明怀羽', '全栈开发者', '编程爱好者'],
       typeSpeed: 100,
       backSpeed: 50,
       backDelay: 2000,

@@ -7,7 +7,7 @@
           <!-- 品牌信息 -->
           <div class="lg:col-span-2">
             <div class="flex items-center space-x-3 mb-6">
-              <span class="text-2xl font-bold text-primary-600">彭存福</span>
+              <span class="text-2xl font-bold text-primary-600">黎明怀羽</span>
             </div>
             <p class="text-gray-300 mb-6 leading-relaxed max-w-md">
               专注于现代Web技术栈的全栈开发工程师，致力于为客户提供高质量的技术解决方案。
@@ -85,7 +85,7 @@
             <!-- 版权信息 -->
             <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
               <p class="text-gray-400 text-sm">
-                © {{ currentYear }} 彭存福. 保留所有权利.
+                © {{ currentYear }} 黎明怀羽. 保留所有权利.
               </p>
               <div class="flex space-x-4">
                 <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-300">
