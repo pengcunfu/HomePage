@@ -4,7 +4,7 @@ import { resolve } from 'path'
 
 export default defineConfig({
   // 根据部署环境动态设置 base 路径
-  base: process.env.CF_PAGES || process.env.NODE_ENV === 'production' ? '/' : '/HomePage',
+  base: '/',
   plugins: [vue()],
   resolve: {
     alias: {
