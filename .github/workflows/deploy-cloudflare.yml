@@ -44,8 +44,8 @@ jobs:
       - name: 部署到 Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}  # Cloudflare API Token (需要配置)
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }} # Cloudflare Account ID (需要配置)
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}  # Cloudflare API Token
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }} # Cloudflare Account ID
           projectName: homepage  # 你的 Cloudflare Pages 项目名称
           directory: ./dist  # 构建输出目录
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}  # GitHub Token (自动提供)
