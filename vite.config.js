@@ -3,7 +3,8 @@ import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/HomePage/' : '/',
+  // 根据部署环境动态设置 base 路径
+  base: process.env.CF_PAGES || process.env.NODE_ENV === 'production' ? '/' : '/',
   plugins: [vue()],
   resolve: {
     alias: {
@@ -25,6 +26,8 @@ export default defineConfig({
         entryFileNames: 'assets/js/[name]-[hash].js',
         assetFileNames: 'assets/[ext]/[name]-[hash].[ext]'
       }
-    }
+    },
+    // Cloudflare Pages 构建优化
+    assetsInlineLimit: 4096, // 小于 4kb 的资源内联
   }
 })

@@ -1,0 +1,59 @@
+name: 部署到 Cloudflare Pages
+
+# 触发条件：推送到 master 分支时自动执行，也支持手动触发
+on:
+  push:
+    branches:
+      - master  # 当推送到 master 分支时自动触发部署流程
+  workflow_dispatch:  # 允许在 GitHub Actions 界面手动触发部署
+
+# 设置必要的权限
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  # 部署任务：构建并部署到 Cloudflare Pages
+  deploy:
+    name: 部署到 Cloudflare Pages
+    runs-on: ubuntu-latest  # 使用最新的 Ubuntu 运行环境
+
+    steps:
+      # 第一步：检出代码
+      - name: 检出源代码
+        uses: actions/checkout@v4  # 获取仓库的最新代码
+
+      # 第二步：配置 Node.js 环境
+      - name: 配置 Node.js 开发环境
+        uses: actions/setup-node@v4  # 设置 Node.js 运行环境
+        with:
+          node-version: '20'          # 使用 Node.js 20 版本
+          cache: 'yarn'               # 启用 yarn 包管理器的缓存以加速构建
+
+      # 第三步：安装项目依赖
+      - name: 安装项目依赖包
+        run: yarn install --frozen-lockfile  # 使用 yarn 安装依赖，frozen-lockfile 确保版本一致性
+
+      # 第四步：构建项目
+      - name: 构建生产版本
+        run: yarn build  # 执行构建命令，生成可部署的静态文件
+        env:
+          CF_PAGES: 1  # 设置 Cloudflare Pages 环境变量
+
+      # 第五步：部署到 Cloudflare Pages
+      - name: 部署到 Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}  # Cloudflare API Token
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }} # Cloudflare Account ID
+          projectName: homepage  # 你的 Cloudflare Pages 项目名称
+          directory: ./dist  # 构建输出目录
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}  # GitHub Token 用于评论部署状态
+
+      # 第六步：部署后通知（可选）
+      - name: 部署完成通知
+        if: success()
+        run: |
+          echo "🎉 部署成功！"
+          echo "网站已成功部署到 Cloudflare Pages"
+          echo "预览链接将在几分钟后可用"
