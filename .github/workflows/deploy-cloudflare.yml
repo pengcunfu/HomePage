@@ -1,51 +1,50 @@
-name: 部署到 Cloudflare Pages
+name: Deploy static content to Cloudflare Pages
 
-# 触发条件：推送到 master 分支时自动执行，也支持手动触发
 on:
+  # Runs on pushes targeting the default branch
   push:
-    branches:
-      - master  # 当推送到 master 分支时自动触发部署流程
-  workflow_dispatch:  # 允许在 GitHub Actions 界面手动触发
+    branches: ["master"]
 
-# 设置必要的权限
-permissions:
-  contents: read
-  deployments: write
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
-  # 构建任务：安装依赖并构建静态网站
-  build:
-    name: 构建静态网站
-    runs-on: ubuntu-latest  # 使用最新的 Ubuntu 运行环境
-
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    name: Publish to Cloudflare Pages
     steps:
-      # 第一步：检出代码
-      - name: 检出源代码
-        uses: actions/checkout@v4  # 获取仓库的最新代码
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      # 第二步：配置 Node.js 环境
-      - name: 配置 Node.js 开发环境
-        uses: actions/setup-node@v4  # 设置 Node.js 运行环境
+      # Run a build step here if your project requires
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'          # 使用 Node.js 20 版本
-          cache: 'yarn'               # 启用 yarn 包管理器的缓存以加速构建
+          node-version: '20'
+          cache: 'yarn'
 
-      # 第三步：安装项目依赖
-      - name: 安装项目依赖包
-        run: yarn install --frozen-lockfile  # 使用 yarn 安装依赖，frozen-lockfile 确保版本一致性
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
 
-      # 第四步：构建项目
-      - name: 构建生产版本
-        run: yarn build  # 执行构建命令，生成可部署的静态文件
+      - name: Build project
+        run: yarn build
         env:
-          CF_PAGES: 1  # 设置 Cloudflare Pages 环境变量
+          CF_PAGES: 1
 
-      # 第五步：部署到 Cloudflare Pages
-      - name: 部署到 Cloudflare Pages
+      - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}  # Cloudflare API Token
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }} # Cloudflare Account ID
-          projectName: homepage  # 你的 Cloudflare Pages 项目名称
-          directory: ./dist  # 构建输出目录
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}  # GitHub Token (自动提供)
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: homepage
+          directory: ./dist
+          # Optional: Enable this if you want to have GitHub Deployments triggered
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          # Optional: Switch what branch you are publishing to.
+          # By default this will be the branch which triggered this workflow
+          branch: master
+          # Optional: Change the Wrangler version
+          wranglerVersion: '3'
